@@ -4,3 +4,5 @@
   color: white;
   font-size: xx-large;
 }
+
+@import "bootstrap/scss/bootstrap";
