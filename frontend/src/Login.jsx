@@ -1,12 +1,9 @@
 import React from "react";
-import styles from "./Login.css";
 
-const Login = () => {
+export default function Login() {
   return (
-    <div style={styles.app}>
+    <div>
       <h1>Welcome back User!</h1>
     </div>
   );
-};
-
-export default Login;
+}
