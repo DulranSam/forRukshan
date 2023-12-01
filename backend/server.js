@@ -8,7 +8,8 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/rukshan", (req, res) => {
-  res.json({ Alert: "Hello Rukshan" });
+  const balls = "Haseeb wants to greet you";
+  res.send(`Hello rukshan ${balls} `);
 });
 
 app.listen(port, console.log(`Servers up on port ${port}`));
