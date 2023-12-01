@@ -1,7 +1,11 @@
 import React, { useState, createContext, useEffect } from "react";
-import "./App.css";
+
 import Axios from "axios";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SubComponent from "./SubComponent";
+import Rukshan from "./Rukshan";
+import Login from "./Login";
 
 export const CountContext = createContext();
 
@@ -54,46 +58,13 @@ export default function App() {
 
   return (
     <>
-      <p>{count}</p>
-      <button
-        onClick={() => {
-          setCount(() => 0);
-        }}
-      >
-        Reset
-      </button>
-      <button
-        onClick={() => {
-          setCount((x) => x + 1);
-        }}
-      >
-        Increase
-      </button>
-      <form onSubmit={grabMoviesa}>
-        <input onChange={SearchUp} placeholder="Search Film" />
-        <input
-          onChange={(e) => {
-            setLimit(e.target.value);
-          }}
-          type="number"
-          value={limit}
-        />
-        <button type="submit">Search for film</button>
-      </form>
-
-      {movies.length > 0 ? (
-        movies.map((x) => (
-          <div key={x.id}>
-            <h1>{x.title}</h1>
-            <img src={x.large_cover_image} alt={`image for ${x.title}`}></img>
-            <br></br>
-            <img src={x.background_image} alt={x.title} />
-            <p>{x.description_full || `No description for ${x.title}`}</p>
-          </div>
-        ))
-      ) : (
-        <p>No results found</p>
-      )}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SubComponent></SubComponent>}></Route>
+          <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/Rukshan" element={<Rukshan></Rukshan>}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
