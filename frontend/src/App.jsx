@@ -9,6 +9,7 @@ export default function App() {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(5);
+  const [count, setCount] = useState(0);
 
   function SearchUp(e) {
     setSearch(e.target.value);
@@ -53,6 +54,21 @@ export default function App() {
 
   return (
     <>
+      <p>{count}</p>
+      <button
+        onClick={() => {
+          setCount(() => 0);
+        }}
+      >
+        Reset
+      </button>
+      <button
+        onClick={() => {
+          setCount((x) => x + 1);
+        }}
+      >
+        Increase
+      </button>
       <form onSubmit={grabMoviesa}>
         <input onChange={SearchUp} placeholder="Search Film" />
         <input
